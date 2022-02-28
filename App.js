@@ -8,23 +8,9 @@
 
 import React from 'react';
 import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, useColorScheme, View,FlatList} from 'react-native';
+// import Animated,{interpolateNode, interpolateColors} from 'react-native-reanimated';
+import {Colors, DebugInstructions, Header, LearnMoreLinks, ReloadInstructions,} from 'react-native/Libraries/NewAppScreen';
 
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -61,29 +47,64 @@ const App: () => Node = () => {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      {/*<StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />*/}
+        <Section title="Step One">
+            Edit <Text style={styles.highlight}>App.js</Text> to change this
+            screen and then come back to see your edits.
+        </Section>
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
+        style={backgroundStyle}
+        stickyHeaderIndices={[1]}
+      >
         <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
+
+        <View style={{backgroundColor: isDarkMode ? Colors.black : Colors.white,}}>
           <Section title="Step One">
             Edit <Text style={styles.highlight}>App.js</Text> to change this
             screen and then come back to see your edits.
           </Section>
+        </View>
+        <View style={{backgroundColor: isDarkMode ? Colors.black : Colors.white,}}>
           <Section title="See Your Changes">
             <ReloadInstructions />
           </Section>
-          <Section title="Debug">
-            <DebugInstructions />
+        </View>
+        <View style={{backgroundColor: isDarkMode ? Colors.black : Colors.white,}}>
+          <Section title="Step One">
+              Edit <Text style={styles.highlight}>App.js</Text> to change this
+              screen and then come back to see your edits.
           </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
+        </View>
+        <ScrollView stickyHeaderIndices={[0]}>
+            <View style={{backgroundColor: isDarkMode ? Colors.black : Colors.white,}}>
+                <Section title="Debug">
+                    <DebugInstructions />
+                </Section>
+            </View>
+        </ScrollView>
+        <View style={{backgroundColor: isDarkMode ? Colors.black : Colors.white,}}>
+            <Section title="Debug">
+                <DebugInstructions />
+            </Section>
+        </View>
+        <View style={{backgroundColor: isDarkMode ? Colors.black : Colors.white,}}>
+          <Section title="Step One">
+              Edit <Text style={styles.highlight}>App.js</Text> to change this
+              screen and then come back to see your edits.
           </Section>
-          <LearnMoreLinks />
+        </View>
+        <View style={{backgroundColor: isDarkMode ? Colors.black : Colors.white,}}>
+            <Section title="Learn More">
+                Read the docs to discover what to do next:
+            </Section>
+            <LearnMoreLinks />
+        </View>
+        <View style={{backgroundColor: isDarkMode ? Colors.black : Colors.white,}}>
+          <Section title="Step One">
+              Edit <Text style={styles.highlight}>App.js</Text> to change this
+              screen and then come back to see your edits.
+          </Section>
         </View>
       </ScrollView>
     </SafeAreaView>
